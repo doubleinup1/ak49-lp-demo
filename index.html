@@ -320,17 +320,13 @@
     border: 1px solid var(--field-border);
   }
   .coach-avatar {
-    width: 96px;
-    height: 96px;
+    width: 112px;
+    height: 112px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--gold) 100%);
     margin: 0 auto 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 42px;
-    color: var(--bg);
-    font-weight: 900;
+    display: block;
+    object-fit: cover;
+    object-position: center 30%;
     border: 4px solid var(--bg);
     box-shadow: 0 0 0 3px var(--accent);
   }
@@ -496,7 +492,7 @@
     </div>
 
     <div class="coach">
-      <div class="coach-avatar">S</div>
+      <img class="coach-avatar" src="coach-seth.jpg" alt="Coach Seth, owner of AK-49 Martial Arts">
       <h3>Coach Seth</h3>
       <div class="title">Owner · 7th-Degree Black Belt · AK-49 Martial Arts</div>
       <p>"I personally meet every new student and family on day one. If you have questions before class — about your kid, about what to expect, about anything — just text me at the number you just got. That's my real number."</p>
