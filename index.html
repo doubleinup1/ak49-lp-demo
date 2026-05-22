@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AK-49 Martial Arts — Free Kids Kickboxing Class Pass for Kenai Peninsula families.">
+<title>AK-49 Martial Arts — Free Kids Kickboxing Pass</title>
+<style>
+  :root {
+    /* AK-49 official brand palette */
+    --bg: #1B3651;
+    --bg-2: #233E5D;
+    --accent: #EE7C2A;
+    --accent-hover: #F4A862;
+    --gold: #F5C24D;
+    --teal: #B5CDD1;
+    --text: #FFFFFF;
+    --text-soft: #F5F5F5;
+    --muted: #B8C1CC;
+    --field-bg: #ffffff;
+    --field-border: #2A4664;
+    --success: #4ade80;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  /* Page switching */
+  .page { display: none; }
+  .page.active { display: block; animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Demo nav (bottom-right floating) */
+  .demo-nav {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 12px;
+    z-index: 9999;
+    border: 1px solid rgba(255,255,255,0.15);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .demo-nav:hover { background: rgba(0,0,0,0.85); transform: translateY(-1px); }
+  .demo-nav span { color: var(--gold); margin-left: 4px; }
+
+  /* ===== HERO ===== */
+  .scarcity-strip {
+    background: var(--accent);
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+  .scarcity-strip span { animation: pulse 2s infinite; display: inline-block; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+
+  .hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 24px 72px;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; gap: 32px; padding: 32px 20px 48px; }
+  }
+
+  .eyebrow {
+    color: var(--gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: "Bebas Neue", "Anton", Impact, "Arial Narrow Bold", sans-serif;
+    letter-spacing: 0.5px;
+    font-size: clamp(34px, 5.5vw, 56px);
+    line-height: 1.05;
+    margin: 0 0 18px;
+    font-weight: 900;
+  }
+  h1 .free { color: var(--accent); }
+  .sub {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 28px;
+    max-width: 540px;
+  }
+  .benefits { list-style: none; padding: 0; margin: 0 0 28px; }
+  .benefits li { padding: 8px 0; font-size: 16px; display: flex; align-items: flex-start; gap: 12px; }
+  .benefits li::before { content: "💥"; flex-shrink: 0; }
+  .trust { color: var(--gold); font-weight: 600; font-size: 15px; margin-top: 8px; }
+
+  .form-card {
+    background: var(--bg-2);
+    border: 1px solid var(--field-border);
+    border-radius: 14px;
+    padding: 32px 28px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  }
+  .form-card h2 { margin: 0 0 6px; font-size: 22px; font-weight: 800; }
+  .form-card .scarcity-mini { color: var(--accent); font-weight: 700; font-size: 14px; margin-bottom: 22px; }
+  .form-card label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin: 14px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .form-card input {
+    width: 100%;
+    padding: 14px 14px;
+    border-radius: 8px;
+    border: 1px solid #d4d4d4;
+    background: var(--field-bg);
+    color: #111;
+    font-size: 16px;
+  }
+  .form-card input:focus { outline: 2px solid var(--gold); }
+  .form-card .helper { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .cta {
+    width: 100%;
+    margin-top: 22px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 8px 18px rgba(238, 124, 42, 0.45);
+    transition: transform 0.08s ease, background 0.15s ease;
+  }
+  .cta:hover { transform: translateY(-1px); background: var(--accent-hover); }
+  .risk-reversal { margin-top: 14px; font-size: 13px; color: var(--muted); line-height: 1.5; font-style: italic; }
+  .testimonial {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--field-border);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .stars { color: var(--gold); letter-spacing: 2px; }
+
+  /* ===== THANK-YOU ===== */
+  .top-bar {
+    background: linear-gradient(90deg, var(--success) 0%, #22c55e 100%);
+    color: #052e16;
+    text-align: center;
+    padding: 12px 16px;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+  }
+  .ty-container { max-width: 1080px; margin: 0 auto; padding: 48px 24px; }
+  .hero-confirm { text-align: center; margin-bottom: 40px; }
+  .voucher-badge {
+    display: inline-block;
+    background: var(--bg-2);
+    border: 2px solid var(--accent);
+    border-radius: 999px;
+    padding: 8px 22px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .ty-h1 {
+    font-family: "Bebas Neue", "Anton", Impact, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(38px, 5.5vw, 60px);
+    margin: 0 0 10px;
+    letter-spacing: 0.5px;
+  }
+  .ty-h1 .name { color: var(--accent); }
+  .sub-confirm { color: var(--muted); font-size: 18px; max-width: 620px; margin: 0 auto; }
+  .voucher-strip {
+    background: var(--accent);
+    color: #fff;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 10px;
+    margin: 28px auto 0;
+    max-width: 520px;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 8px 22px rgba(238, 124, 42, 0.35);
+  }
+  .voucher-strip .num { font-size: 22px; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 36px;
+    margin-top: 48px;
+  }
+  @media (max-width: 880px) { .two-col { grid-template-columns: 1fr; gap: 24px; } }
+
+  .card {
+    background: var(--bg-2);
+    border: 1px solid var(--field-border);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .card h2 {
+    margin: 0 0 18px;
+    font-size: 22px;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card h2 .step-num {
+    background: var(--accent);
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: 800;
+  }
+  .calendar-placeholder {
+    background: #0e2238;
+    border: 2px dashed var(--field-border);
+    border-radius: 10px;
+    padding: 36px 20px;
+    text-align: center;
+    color: var(--muted);
+  }
+  .calendar-placeholder .label { color: var(--accent); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; font-size: 12px; }
+  .calendar-placeholder strong { color: var(--text); display: block; font-size: 18px; margin-bottom: 6px; }
+  .time-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .slot {
+    background: var(--bg);
+    border: 1px solid var(--field-border);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 13px;
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .slot:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .slot strong { display: block; color: var(--gold); margin-bottom: 2px; }
+
+  .next-steps { list-style: none; padding: 0; margin: 0; }
+  .next-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--field-border);
+  }
+  .next-steps li:last-child { border-bottom: none; }
+  .next-steps .icon {
+    width: 36px;
+    height: 36px;
+    background: var(--bg);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .next-steps .copy h3 { margin: 0 0 4px; font-size: 15px; color: var(--text); }
+  .next-steps .copy p { margin: 0; font-size: 13px; color: var(--muted); }
+
+  .phone-banner {
+    background: linear-gradient(135deg, var(--bg-2) 0%, #2c4a6b 100%);
+    border: 1px solid var(--accent);
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .phone-banner .emoji { font-size: 42px; flex-shrink: 0; }
+  .phone-banner h3 { margin: 0 0 6px; color: var(--gold); font-size: 18px; }
+  .phone-banner p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .coach {
+    margin-top: 48px;
+    text-align: center;
+    padding: 36px 24px;
+    background: var(--bg-2);
+    border-radius: 14px;
+    border: 1px solid var(--field-border);
+  }
+  .coach-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--gold) 100%);
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    color: var(--bg);
+    font-weight: 900;
+    border: 4px solid var(--bg);
+    box-shadow: 0 0 0 3px var(--accent);
+  }
+  .coach h3 { margin: 0 0 6px; font-size: 20px; }
+  .coach .title { color: var(--gold); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+  .coach p { color: var(--muted); max-width: 540px; margin: 0 auto; font-size: 15px; }
+
+  .referral {
+    margin-top: 36px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 14px;
+    padding: 28px;
+    text-align: center;
+  }
+  .referral h3 { margin: 0 0 10px; font-size: 22px; }
+  .referral p { margin: 0 0 18px; opacity: 0.92; }
+  .referral .btn {
+    background: var(--bg);
+    color: var(--gold);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .referral .btn:hover { background: #0e2238; }
+</style>
+</head>
+<body>
+
+<!-- ===================== PAGE 1: HERO / LANDING ===================== -->
+<div id="page-hero" class="page active">
+
+  <div class="scarcity-strip"><span>🚨 Only 12 vouchers available this month — first-request basis</span></div>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">⭐ Kenai Peninsula Parents</div>
+      <h1>Claim Your <span class="free">FREE</span> Kids Kickboxing Class Pass</h1>
+      <p class="sub">Build your child's confidence, focus, and real self-defense skills at AK-49 Martial Arts — taught by a 7th-degree black belt right here in Soldotna.</p>
+      <ul class="benefits">
+        <li>Build confidence — no more shy, no more pushed around</li>
+        <li>Learn real self-defense from a 7th-degree black belt</li>
+        <li>Make new friends in a positive, structured environment</li>
+        <li>Get off screens, into the dojo</li>
+        <li>Build character, focus, and respect</li>
+      </ul>
+      <div class="trust">★★★★★ Trusted by 500+ Kenai Peninsula families since 2017</div>
+    </div>
+
+    <div class="form-card">
+      <h2>Grab Your Voucher</h2>
+      <div class="scarcity-mini">Only 12 left — first-request basis</div>
+
+      <form id="lead-form" autocomplete="on">
+        <label for="name">Parent's First Name</label>
+        <input id="name" name="name" type="text" placeholder="Your first name" required>
+
+        <label for="phone">Phone Number</label>
+        <input id="phone" name="phone" type="tel" placeholder="(907) 555-0100" required>
+        <div class="helper">So Coach Seth can text you to schedule.</div>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        <div class="helper">We'll send your voucher + reminders here.</div>
+
+        <button type="submit" class="cta">Claim My Free Pass →</button>
+      </form>
+
+      <p class="risk-reversal">No commitment. No equipment to buy. If your child doesn't ask to come back after their first class, keep the voucher as our gift — your time wasn't wasted.</p>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <em>"AK-49 Martial Arts is a great academy! Very welcoming and very fun."</em>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== PAGE 2: THANK-YOU ===================== -->
+<div id="page-thankyou" class="page">
+
+  <div class="top-bar">✓ VOUCHER LOCKED IN — CHECK YOUR PHONE</div>
+
+  <div class="ty-container">
+
+    <div class="hero-confirm">
+      <div class="voucher-badge">Voucher Confirmed</div>
+      <h1 class="ty-h1">You're In, <span class="name" id="ty-name">Champ</span>.</h1>
+      <p class="sub-confirm">Your FREE Kids Kickboxing Class Pass is locked in. Now let's get on the mat.</p>
+
+      <div class="voucher-strip">
+        🎫 Your voucher: <span class="num">#7 of 12</span> &nbsp;|&nbsp; valid 7 days
+      </div>
+    </div>
+
+    <div class="two-col">
+
+      <div class="card">
+        <h2><span class="step-num">1</span> Pick Your First Class</h2>
+        <div class="calendar-placeholder">
+          <div class="label">↓ Calendly / Acuity embed goes here ↓</div>
+          <strong>This Week's Open Slots</strong>
+          <span>Tap a time to book your free trial</span>
+          <div class="time-slots">
+            <div class="slot"><strong>Mon</strong> 4:00 PM</div>
+            <div class="slot"><strong>Mon</strong> 5:30 PM</div>
+            <div class="slot"><strong>Tue</strong> 4:00 PM</div>
+            <div class="slot"><strong>Wed</strong> 4:00 PM</div>
+            <div class="slot"><strong>Wed</strong> 5:30 PM</div>
+            <div class="slot"><strong>Thu</strong> 4:00 PM</div>
+            <div class="slot"><strong>Fri</strong> 4:00 PM</div>
+            <div class="slot"><strong>Sat</strong> 10:00 AM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2><span class="step-num">2</span> Here's What Happens Next</h2>
+        <ul class="next-steps">
+          <li>
+            <span class="icon">📱</span>
+            <div class="copy">
+              <h3>Voucher text inbound</h3>
+              <p>Just sent to your phone. Reply YES to confirm.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon">📅</span>
+            <div class="copy">
+              <h3>Pick a class time (left)</h3>
+              <p>Takes 10 seconds. We'll text you a reminder day-of.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon">👕</span>
+            <div class="copy">
+              <h3>Show up in comfy clothes</h3>
+              <p>No uniform needed. Bring water. We supply everything else.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon">🥊</span>
+            <div class="copy">
+              <h3>First class = fun + confidence</h3>
+              <p>One hour. Real instructors. Coach Seth meets you at the door.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phone-banner">
+      <div class="emoji">📲</div>
+      <div>
+        <h3>Check your phone right now</h3>
+        <p>We just sent your voucher details and a quick reply prompt by text. Reply YES so Coach Seth knows you got it — and to lock in your spot.</p>
+      </div>
+    </div>
+
+    <div class="coach">
+      <div class="coach-avatar">S</div>
+      <h3>Coach Seth</h3>
+      <div class="title">Owner · 7th-Degree Black Belt · AK-49 Martial Arts</div>
+      <p>"I personally meet every new student and family on day one. If you have questions before class — about your kid, about what to expect, about anything — just text me at the number you just got. That's my real number."</p>
+    </div>
+
+    <div class="referral">
+      <h3>While you're here — know another parent who'd love this?</h3>
+      <p>Share your voucher link. If they sign up too, we'll add an extra free week to your trial. (12 vouchers go fast.)</p>
+      <button class="btn">Share My Voucher Link</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Demo navigation -->
+<div class="demo-nav" id="demo-nav">
+  Demo view: <span id="nav-current">Hero (Page 1)</span>
+</div>
+
+<script>
+  const heroPage = document.getElementById('page-hero');
+  const tyPage = document.getElementById('page-thankyou');
+  const navLabel = document.getElementById('nav-current');
+  const demoNav = document.getElementById('demo-nav');
+  const form = document.getElementById('lead-form');
+  const tyName = document.getElementById('ty-name');
+
+  function showHero() {
+    heroPage.classList.add('active');
+    tyPage.classList.remove('active');
+    navLabel.textContent = 'Hero (Page 1) — click to flip';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+  function showThankYou() {
+    heroPage.classList.remove('active');
+    tyPage.classList.add('active');
+    navLabel.textContent = 'Thank-You (Page 2) — click to flip';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim() || 'Champ';
+    // Capitalize first letter
+    tyName.textContent = name.charAt(0).toUpperCase() + name.slice(1);
+    showThankYou();
+  });
+
+  demoNav.addEventListener('click', () => {
+    if (heroPage.classList.contains('active')) {
+      showThankYou();
+    } else {
+      showHero();
+    }
+  });
+
+  // Initial label
+  navLabel.textContent = 'Hero (Page 1) — click to flip';
+</script>
+
+</body>
+</html>
