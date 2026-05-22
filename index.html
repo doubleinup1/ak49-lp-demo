@@ -86,7 +86,7 @@
   }
   .benefits { list-style: none; padding: 0; margin: 0 0 28px; }
   .benefits li { padding: 8px 0; font-size: 16px; display: flex; align-items: flex-start; gap: 12px; }
-  .benefits li::before { content: "💥"; flex-shrink: 0; }
+  .benefits li::before { content: "✓"; color: var(--gold); font-weight: 700; flex-shrink: 0; }
   .trust { color: var(--gold); font-weight: 600; font-size: 15px; margin-top: 8px; }
 
   .form-card {
@@ -265,14 +265,16 @@
   }
   .next-steps li:last-child { border-bottom: none; }
   .next-steps .icon {
-    width: 36px;
-    height: 36px;
-    background: var(--bg);
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: #fff;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 14px;
+    font-weight: 700;
     flex-shrink: 0;
   }
   .next-steps .copy h3 { margin: 0 0 4px; font-size: 15px; color: var(--text); }
@@ -288,7 +290,6 @@
     align-items: center;
     gap: 22px;
   }
-  .phone-banner .emoji { font-size: 42px; flex-shrink: 0; }
   .phone-banner h3 { margin: 0 0 6px; color: var(--gold); font-size: 18px; }
   .phone-banner p { margin: 0; color: var(--muted); font-size: 14px; }
 
@@ -345,16 +346,16 @@
 <!-- ===================== PAGE 1: HERO / LANDING ===================== -->
 <div id="page-hero" class="page active">
 
-  <div class="scarcity-strip"><span>🚨 Only 12 vouchers available this month — first-request basis</span></div>
+  <div class="scarcity-strip"><span>Only 12 vouchers available this month — first-request basis</span></div>
 
   <section class="hero">
     <div>
-      <div class="eyebrow">⭐ Kenai Peninsula Parents</div>
+      <div class="eyebrow">Kenai Peninsula Parents</div>
       <h1>Claim Your <span class="free">FREE</span> Kids Kickboxing Class Pass</h1>
-      <p class="sub">Build your child's confidence, focus, and real self-defense skills at AK-49 Martial Arts — taught by a 7th-degree black belt right here in Soldotna.</p>
+      <p class="sub">Build your child's confidence, focus, and real self-defense skills at AK-49 Martial Arts — right here in Soldotna.</p>
       <ul class="benefits">
         <li>Build confidence — no more shy, no more pushed around</li>
-        <li>Learn real self-defense from a 7th-degree black belt</li>
+        <li>Learn real self-defense from experienced instructors</li>
         <li>Make new friends in a positive, structured environment</li>
         <li>Get off screens, into the dojo</li>
         <li>Build character, focus, and respect</li>
@@ -404,7 +405,7 @@
       <p class="sub-confirm">Your FREE Kids Kickboxing Class Pass is locked in. Now let's get on the mat.</p>
 
       <div class="voucher-strip">
-        🎫 Your voucher: <span class="num">#7 of 12</span> &nbsp;|&nbsp; valid 7 days
+        Your voucher: <span class="num">#7 of 12</span> &nbsp;|&nbsp; valid 7 days
       </div>
     </div>
 
@@ -433,30 +434,30 @@
         <h2><span class="step-num">2</span> Here's What Happens Next</h2>
         <ul class="next-steps">
           <li>
-            <span class="icon">📱</span>
+            <span class="icon">1</span>
             <div class="copy">
               <h3>Voucher text inbound</h3>
               <p>Just sent to your phone. Reply YES to confirm.</p>
             </div>
           </li>
           <li>
-            <span class="icon">📅</span>
+            <span class="icon">2</span>
             <div class="copy">
               <h3>Pick a class time (left)</h3>
               <p>Takes 10 seconds. We'll text you a reminder day-of.</p>
             </div>
           </li>
           <li>
-            <span class="icon">👕</span>
+            <span class="icon">3</span>
             <div class="copy">
               <h3>Show up in comfy clothes</h3>
               <p>No uniform needed. Bring water. We supply everything else.</p>
             </div>
           </li>
           <li>
-            <span class="icon">🥊</span>
+            <span class="icon">4</span>
             <div class="copy">
-              <h3>First class = fun + confidence</h3>
+              <h3>First class — fun and confidence</h3>
               <p>One hour. Real instructors. Coach Seth meets you at the door.</p>
             </div>
           </li>
@@ -465,7 +466,6 @@
     </div>
 
     <div class="phone-banner">
-      <div class="emoji">📲</div>
       <div>
         <h3>Check your phone right now</h3>
         <p>We just sent your voucher details and a quick reply prompt by text. Reply YES so Coach Seth knows you got it — and to lock in your spot.</p>
@@ -475,7 +475,7 @@
     <div class="coach">
       <img class="coach-avatar" src="coach-seth.jpg" alt="Coach Seth, owner of AK-49 Martial Arts">
       <h3>Coach Seth</h3>
-      <div class="title">Owner · 7th-Degree Black Belt · AK-49 Martial Arts</div>
+      <div class="title">Owner · AK-49 Martial Arts</div>
       <p>"I personally meet every new student and family on day one. If you have questions before class — about your kid, about what to expect, about anything — just text me at the number you just got. That's my real number."</p>
     </div>
 
