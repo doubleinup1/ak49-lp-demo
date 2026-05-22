@@ -35,6 +35,28 @@
   .page.active { display: block; animation: fadeIn 0.4s ease; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
+  /* ===== SITE HEADER ===== */
+  .site-header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--field-border);
+    padding: 14px 24px;
+  }
+  .site-header .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  .site-header img {
+    height: 56px;
+    width: auto;
+    display: block;
+  }
+  @media (max-width: 600px) {
+    .site-header { padding: 10px 16px; }
+    .site-header img { height: 44px; }
+  }
+
   /* ===== HERO ===== */
   .scarcity-strip {
     background: var(--accent);
@@ -342,6 +364,12 @@
 </style>
 </head>
 <body>
+
+<header class="site-header">
+  <div class="wrap">
+    <img src="ak49-logo.png" alt="AK-49 Martial Arts">
+  </div>
+</header>
 
 <!-- ===================== PAGE 1: HERO / LANDING ===================== -->
 <div id="page-hero" class="page active">
