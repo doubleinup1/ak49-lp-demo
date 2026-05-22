@@ -2,1092 +2,510 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AK-49 Martial Arts — Free Kids Kickboxing Class</title>
-<meta name="description" content="One free hour of kickboxing for your kid, with Coach Seth — a UFC and Glory Kickboxing cornerman. Kenai's only competition-grade gym. 12 vouchers this month.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AK-49 Martial Arts — Free Kids Kickboxing Class Pass for Kenai Peninsula families.">
+<title>AK-49 Martial Arts — Free Kids Kickboxing Pass</title>
 <style>
   :root {
-    --ink:      #0E1A2A;
-    --ink-2:    #1B3651;
-    --cream:    #F4EFE6;
-    --paper:    #ECE5D8;
-    --orange:   #EE7C2A;
-    --orange-2: #D86916;
-    --gold:     #F5C24D;
-    --ash:      #6E7A8A;
-    --ash-2:    #93A0B0;
-    --line:     #233853;
-    --line-cream: #D6CCB8;
+    /* AK-49 official brand palette */
+    --bg: #1B3651;
+    --bg-2: #233E5D;
+    --accent: #EE7C2A;
+    --accent-hover: #F4A862;
+    --gold: #F5C24D;
+    --teal: #B5CDD1;
+    --text: #FFFFFF;
+    --text-soft: #F5F5F5;
+    --muted: #B8C1CC;
+    --field-bg: #ffffff;
+    --field-border: #2A4664;
+    --success: #4ade80;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
-    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-size: 17px;
-    line-height: 1.55;
-    color: var(--cream);
-    background: var(--ink);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
   }
-  .display { font-family: 'Anton', 'Bebas Neue', Impact, sans-serif; font-weight: 400; letter-spacing: 0.005em; line-height: 0.92; text-transform: uppercase; }
-  .serif-it { font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif; font-style: italic; font-weight: 400; }
 
-  /* ——— PAGE FLIPPER (LP ↔ thank-you) ——— */
+  /* Page switching */
   .page { display: none; }
-  .page.active { display: block; animation: fade 0.45s ease; }
-  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  .page.active { display: block; animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-  .demo-nav {
-    position: fixed; right: 16px; bottom: 16px;
-    background: rgba(14, 26, 42, 0.94);
-    color: var(--cream);
-    padding: 9px 14px;
-    border: 1px solid #2a4566;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    z-index: 999;
-    font-family: 'Inter', sans-serif;
-  }
-  .demo-nav:hover { background: var(--orange); color: var(--ink); border-color: var(--orange); }
-
-  /* ——— HEADER ——— */
-  header.bar {
-    border-bottom: 1px solid var(--line);
-    padding: 18px 0;
-    background: var(--ink);
-  }
-  .wrap {
-    width: min(100%, 1240px);
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-  .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-  .brand {
-    display: flex; align-items: center; gap: 10px;
-    color: var(--cream); text-decoration: none;
-  }
-  .brand-mark {
-    width: 36px; height: 36px;
-    background: var(--orange);
-    display: grid; place-items: center;
-    color: var(--ink); font-family: 'Anton', sans-serif; font-size: 18px;
-    letter-spacing: 0.5px;
-  }
-  .brand-name {
-    font-family: 'Anton', sans-serif;
-    font-size: 19px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .brand-name span { color: var(--orange); }
-  .header-call {
-    color: var(--cream);
-    text-decoration: none;
-    font-size: 13px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--orange);
-    padding-bottom: 2px;
-  }
-  .header-call:hover { color: var(--orange); }
-
-  /* ——— HERO ——— */
-  .hero { padding: 56px 0 72px; }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.7fr 0.85fr;
-    gap: 64px;
-    align-items: center;
-  }
-  .eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--orange);
-    font-weight: 600;
-    margin: 0 0 22px;
-    display: flex; align-items: center; gap: 14px;
-  }
-  .eyebrow::before {
-    content: ""; display: inline-block;
-    width: 36px; height: 1px; background: var(--orange);
-  }
-  h1.lead {
-    font-size: clamp(38px, 5.2vw, 68px);
-    margin: 0 0 22px;
-    max-width: 16ch;
-  }
-  h1.lead em {
-    font-style: normal;
-    color: var(--orange);
-  }
-  .sub {
-    font-size: 16px;
-    line-height: 1.55;
-    max-width: 56ch;
-    color: var(--ash-2);
-    margin: 0 0 28px;
-  }
-  .sub b { color: var(--cream); font-weight: 600; }
-  .scarcity-line {
-    font-size: 13px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--cream);
-    margin: 0 0 26px;
-    padding-top: 22px;
-    border-top: 1px solid var(--line);
-    display: flex; align-items: baseline; gap: 14px;
-  }
-  .scarcity-line .num {
-    font-family: 'Anton', sans-serif;
-    font-size: 30px;
-    color: var(--orange);
-    letter-spacing: 0;
-  }
-  .scarcity-line span.lbl { color: var(--ash-2); font-size: 12px; }
-
-  /* Form, no card */
-  form.lead {
-    display: grid;
-    gap: 18px;
-    max-width: 480px;
-  }
-  form.lead .row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-  }
-  form.lead label {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--ash-2);
-    margin-bottom: 8px;
-  }
-  form.lead input {
-    width: 100%;
-    background: transparent;
-    color: var(--cream);
-    border: none;
-    border-bottom: 1px solid var(--line);
-    padding: 6px 0 10px;
-    font-family: inherit;
-    font-size: 16px;
-    border-radius: 0;
-    outline: none;
-    transition: border-color 0.15s ease;
-  }
-  form.lead input::placeholder { color: #4a5d77; }
-  form.lead input:focus { border-bottom-color: var(--orange); }
-  .cta {
-    margin-top: 8px;
-    display: inline-flex; align-items: center; justify-content: center;
-    padding: 18px 28px;
-    background: var(--orange);
-    color: var(--ink);
-    border: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
+  /* ===== HERO ===== */
+  .scarcity-strip {
+    background: var(--accent);
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
     font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.15s ease;
-    width: 100%;
+    font-size: 14px;
+    letter-spacing: 0.3px;
   }
-  .cta:hover { background: var(--orange-2); }
-  .risk {
-    font-size: 13px;
-    color: var(--ash);
-    margin-top: 14px;
-    line-height: 1.5;
-    max-width: 480px;
-  }
+  .scarcity-strip span { animation: pulse 2s infinite; display: inline-block; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
 
-  /* Portrait column — small inset, not a billboard */
-  .portrait-col {
-    position: relative;
-    max-width: 280px;
-    justify-self: end;
-    width: 100%;
-  }
-  .portrait {
-    width: 100%;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    object-position: center 18%;
-    display: block;
-    filter: contrast(1.04) saturate(0.92);
-  }
-  .portrait-tag {
-    margin-top: 14px;
+  .hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 24px 72px;
     display: grid;
-    gap: 4px;
-    border-top: 1px solid var(--line);
-    padding-top: 14px;
-  }
-  .portrait-tag .name {
-    font-family: 'Anton', sans-serif;
-    font-size: 17px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .portrait-tag .creds {
-    font-size: 10.5px;
-    color: var(--ash-2);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  /* ——— TRUST STRIP ——— */
-  .strip {
-    background: #08111C;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    padding: 22px 0;
-  }
-  .strip .wrap {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px;
-    font-size: 11px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--ash-2);
-  }
-  .strip .wrap > span:not(.dot) { color: var(--cream); }
-  .strip .dot { color: var(--orange); }
-
-  /* ——— SECTION: WHAT YOU GET ——— */
-  section.alt {
-    background: var(--cream);
-    color: var(--ink);
-    padding: 80px 0;
-  }
-  .label-tiny {
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--orange-2);
-    font-weight: 600;
-    margin: 0 0 18px;
-  }
-  .h2 {
-    font-size: clamp(32px, 4vw, 52px);
-    margin: 0 0 0;
-    color: var(--ink);
-    max-width: 16ch;
-  }
-  .get-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.45fr;
-    gap: 72px;
-    align-items: start;
-    margin-top: 48px;
-  }
-  .get-grid .caption {
-    font-size: 17px;
-    color: #46566c;
-    line-height: 1.6;
-    max-width: 36ch;
-  }
-  .numlist {
-    margin: 0; padding: 0; list-style: none;
-  }
-  .numlist li {
-    display: grid;
-    grid-template-columns: 72px 1fr;
-    gap: 16px;
-    padding: 22px 0;
-    border-top: 1px solid var(--line-cream);
-  }
-  .numlist li:last-child { border-bottom: 1px solid var(--line-cream); }
-  .numlist .n {
-    font-family: 'Anton', sans-serif;
-    font-size: 34px;
-    color: var(--orange);
-    letter-spacing: 0;
-    line-height: 1;
-  }
-  .numlist .copy h3 {
-    font-family: 'Anton', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin: 2px 0 6px;
-    color: var(--ink);
-  }
-  .numlist .copy p {
-    margin: 0;
-    color: #46566c;
-    font-size: 15.5px;
-    line-height: 1.6;
-    max-width: 52ch;
-  }
-
-  /* ——— COACH BIO ——— */
-  section.coach {
-    background: var(--ink);
-    padding: 80px 0;
-  }
-  .coach-grid {
-    display: grid;
-    grid-template-columns: 0.7fr 1.4fr;
-    gap: 64px;
-    align-items: start;
-  }
-  .coach-photo {
-    width: 100%;
-    max-width: 320px;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    object-position: center 22%;
-    display: block;
-    filter: contrast(1.04) saturate(0.92);
-  }
-  .coach-content { padding: 0; }
-  .coach-content .h2 { color: var(--cream); margin-bottom: 28px; }
-  .creds-stack {
-    display: grid; gap: 0;
-    margin: 0 0 36px;
-    padding: 0;
-    list-style: none;
-  }
-  .creds-stack li {
-    padding: 13px 0;
-    border-top: 1px solid var(--line);
-    display: grid; grid-template-columns: 100px 1fr; gap: 20px;
-    align-items: baseline;
-  }
-  .creds-stack li:last-child { border-bottom: 1px solid var(--line); }
-  .creds-stack .role {
-    font-size: 10.5px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--ash);
-  }
-  .creds-stack .what {
-    font-family: 'Anton', sans-serif;
-    font-size: 17px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--cream);
-  }
-  .pullquote {
-    font-size: clamp(18px, 1.8vw, 22px);
-    line-height: 1.4;
-    color: var(--cream);
-    margin: 22px 0 22px;
-    padding-left: 20px;
-    border-left: 2px solid var(--orange);
-    max-width: 40ch;
-  }
-  .coach-bio {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--ash-2);
-    max-width: 56ch;
-    margin: 0;
-  }
-
-  /* ——— TESTIMONIALS ——— */
-  section.voices {
-    background: var(--paper);
-    color: var(--ink);
-    padding: 80px 0;
-  }
-  .voices-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
-    margin-top: 44px;
-  }
-  .voice .quote {
-    font-size: 17px;
-    line-height: 1.5;
-    color: var(--ink);
-    margin: 0 0 18px;
-    font-weight: 500;
-    letter-spacing: -0.005em;
-  }
-  .voice .who {
-    border-top: 1px solid var(--line-cream);
-    padding-top: 14px;
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #5a6b80;
-  }
-  .voice .who b { color: var(--ink); font-weight: 600; }
-
-  /* ——— FINAL CTA ——— */
-  section.endcta {
-    background: var(--ink);
-    padding: 88px 0;
-    border-top: 1px solid var(--line);
-  }
-  .endcta-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 64px;
-    align-items: end;
-  }
-  .endcta .h2 { color: var(--cream); max-width: 14ch; }
-  .endcta .scarcity-big {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(56px, 6.4vw, 96px);
-    color: var(--orange);
-    line-height: 0.85;
-    margin: 0 0 12px;
-  }
-  .endcta .scarcity-sub {
-    font-size: 13px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--ash-2);
-    margin: 0 0 28px;
-  }
-  .endcta .copy-block {
-    max-width: 44ch;
-    color: var(--ash-2);
-    font-size: 16px;
-    line-height: 1.65;
-    margin: 24px 0 36px;
-  }
-  .endcta .copy-block b { color: var(--cream); font-weight: 600; }
-
-  /* ——— FOOTER ——— */
-  footer {
-    background: #060B12;
-    color: var(--ash);
-    padding: 56px 0 36px;
-    border-top: 1px solid #15202E;
-    font-size: 13px;
-  }
-  footer .wrap {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 48px;
-    align-items: start;
-  }
-  footer h4 {
-    font-family: 'Anton', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--cream);
-    margin: 0 0 14px;
-    font-weight: 400;
-  }
-  footer p { margin: 0 0 6px; line-height: 1.6; }
-  footer .legal {
-    margin-top: 48px;
-    padding-top: 24px;
-    border-top: 1px solid #15202E;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #4a5868;
-  }
-
-  /* ——— THANK-YOU PAGE ——— */
-  .ty-hero { padding: 56px 0 72px; }
-  .ty-hero-grid {
-    display: grid;
-    grid-template-columns: 1.7fr 0.85fr;
-    gap: 64px;
-    align-items: center;
-  }
-  .ty-eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--orange);
-    font-weight: 600;
-    margin: 0 0 22px;
-    display: flex; align-items: center; gap: 14px;
-  }
-  .ty-eyebrow::before {
-    content: ""; display: inline-block;
-    width: 36px; height: 1px; background: var(--orange);
-  }
-  .ty-eyebrow .vchr {
-    font-family: 'Anton', sans-serif; font-size: 18px; letter-spacing: 0;
-    color: var(--cream);
-  }
-  h1.ty-lead {
-    font-size: clamp(36px, 5vw, 64px);
-    margin: 0 0 20px;
-    max-width: 14ch;
-  }
-  h1.ty-lead em { font-style: normal; color: var(--orange); }
-  .ty-sub {
-    font-size: 16px;
-    color: var(--ash-2);
-    max-width: 52ch;
-    margin: 0;
-  }
-
-  /* Book a slot */
-  section.book {
-    background: var(--cream);
-    color: var(--ink);
-    padding: 80px 0;
-  }
-  .book-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 64px;
-    align-items: start;
-    margin-top: 44px;
-  }
-  .book-grid .caption { font-size: 17px; color: #46566c; line-height: 1.6; max-width: 36ch; }
-  .calendar {
-    border: 1px solid var(--line-cream);
-    background: #fff;
-    padding: 36px;
-  }
-  .cal-head {
-    display: flex; align-items: baseline; justify-content: space-between;
-    margin-bottom: 28px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid var(--line-cream);
-  }
-  .cal-head .month {
-    font-family: 'Anton', sans-serif;
-    font-size: 22px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-  .cal-head .embed-note {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ash);
-  }
-  .slots {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
-  }
-  .slot {
-    text-align: left;
-    border: 1px solid var(--line-cream);
-    background: var(--cream);
-    padding: 16px 14px;
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-  .slot:hover { border-color: var(--orange); background: #fff; }
-  .slot .day {
-    font-family: 'Anton', sans-serif;
-    font-size: 18px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--ink);
-    margin-bottom: 2px;
-  }
-  .slot .time { font-size: 14px; color: #5a6b80; }
-
-  /* What to expect (TY) */
-  section.expect {
-    background: var(--ink);
-    color: var(--cream);
-    padding: 80px 0;
-  }
-  .expect .h2 { color: var(--cream); }
-  .expect .numlist li { border-top-color: var(--line); }
-  .expect .numlist li:last-child { border-bottom-color: var(--line); }
-  .expect .numlist .copy h3 { color: var(--cream); }
-  .expect .numlist .copy p { color: var(--ash-2); }
-
-  /* Coach note (TY) */
-  section.coach-note {
-    background: var(--paper);
-    color: var(--ink);
-    padding: 80px 0;
-  }
-  .coach-note-grid {
-    display: grid;
-    grid-template-columns: 0.65fr 1.45fr;
+    grid-template-columns: 1.15fr 1fr;
     gap: 56px;
     align-items: center;
   }
-  .coach-note-photo {
-    width: 100%; max-width: 240px;
-    aspect-ratio: 4/5; object-fit: cover;
-    object-position: center 18%;
-    filter: contrast(1.04) saturate(0.92);
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; gap: 32px; padding: 32px 20px 48px; }
   }
-  .coach-note .h2 { color: var(--ink); }
-  .coach-note .pullquote {
-    color: var(--ink);
-    border-left-color: var(--orange);
-    margin-top: 20px;
-  }
-  .coach-note .sign {
-    margin-top: 26px;
-    font-family: 'Anton', sans-serif;
-    font-size: 20px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--ink);
-  }
-  .coach-note .sign small { display: block; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.18em; color: var(--ash); margin-top: 4px; }
 
-  /* ——— RESPONSIVE ——— */
-  @media (max-width: 980px) {
-    .hero-grid, .coach-grid, .endcta-grid, .ty-hero-grid, .book-grid, .coach-note-grid { grid-template-columns: 1fr; gap: 40px; }
-    .voices-grid { grid-template-columns: 1fr; gap: 28px; }
-    .get-grid { grid-template-columns: 1fr; gap: 36px; }
-    .portrait-col { max-width: 220px; justify-self: start; }
-    .coach-photo { max-width: 240px; }
-    .coach-note-photo { max-width: 200px; }
-    footer .wrap { grid-template-columns: 1fr 1fr; gap: 28px; }
-    .slots { grid-template-columns: repeat(3, 1fr); }
-    .hero, .ty-hero { padding: 40px 0 48px; }
-    section.alt, section.coach, section.voices, section.endcta, section.book, section.expect, section.coach-note { padding: 60px 0; }
+  .eyebrow {
+    color: var(--gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 13px;
+    margin-bottom: 14px;
   }
-  @media (max-width: 640px) {
-    .wrap { padding: 0 24px; }
-    form.lead .row { grid-template-columns: 1fr; gap: 18px; }
-    .slots { grid-template-columns: repeat(2, 1fr); }
-    .creds-stack li { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
-    .numlist li { grid-template-columns: 60px 1fr; gap: 14px; }
-    .numlist .n { font-size: 36px; }
-    footer .wrap { grid-template-columns: 1fr; }
+  h1 {
+    font-family: "Bebas Neue", "Anton", Impact, "Arial Narrow Bold", sans-serif;
+    letter-spacing: 0.5px;
+    font-size: clamp(34px, 5.5vw, 56px);
+    line-height: 1.05;
+    margin: 0 0 18px;
+    font-weight: 900;
   }
+  h1 .free { color: var(--accent); }
+  .sub {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 28px;
+    max-width: 540px;
+  }
+  .benefits { list-style: none; padding: 0; margin: 0 0 28px; }
+  .benefits li { padding: 8px 0; font-size: 16px; display: flex; align-items: flex-start; gap: 12px; }
+  .benefits li::before { content: "💥"; flex-shrink: 0; }
+  .trust { color: var(--gold); font-weight: 600; font-size: 15px; margin-top: 8px; }
+
+  .form-card {
+    background: var(--bg-2);
+    border: 1px solid var(--field-border);
+    border-radius: 14px;
+    padding: 32px 28px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  }
+  .form-card h2 { margin: 0 0 6px; font-size: 22px; font-weight: 800; }
+  .form-card .scarcity-mini { color: var(--accent); font-weight: 700; font-size: 14px; margin-bottom: 22px; }
+  .form-card label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin: 14px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .form-card input {
+    width: 100%;
+    padding: 14px 14px;
+    border-radius: 8px;
+    border: 1px solid #d4d4d4;
+    background: var(--field-bg);
+    color: #111;
+    font-size: 16px;
+  }
+  .form-card input:focus { outline: 2px solid var(--gold); }
+  .form-card .helper { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .cta {
+    width: 100%;
+    margin-top: 22px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 8px 18px rgba(238, 124, 42, 0.45);
+    transition: transform 0.08s ease, background 0.15s ease;
+  }
+  .cta:hover { transform: translateY(-1px); background: var(--accent-hover); }
+  .risk-reversal { margin-top: 14px; font-size: 13px; color: var(--muted); line-height: 1.5; font-style: italic; }
+  .testimonial {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--field-border);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .stars { color: var(--gold); letter-spacing: 2px; }
+
+  /* ===== THANK-YOU ===== */
+  .top-bar {
+    background: linear-gradient(90deg, var(--success) 0%, #22c55e 100%);
+    color: #052e16;
+    text-align: center;
+    padding: 12px 16px;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+  }
+  .ty-container { max-width: 1080px; margin: 0 auto; padding: 48px 24px; }
+  .hero-confirm { text-align: center; margin-bottom: 40px; }
+  .voucher-badge {
+    display: inline-block;
+    background: var(--bg-2);
+    border: 2px solid var(--accent);
+    border-radius: 999px;
+    padding: 8px 22px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .ty-h1 {
+    font-family: "Bebas Neue", "Anton", Impact, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(38px, 5.5vw, 60px);
+    margin: 0 0 10px;
+    letter-spacing: 0.5px;
+  }
+  .ty-h1 .name { color: var(--accent); }
+  .sub-confirm { color: var(--muted); font-size: 18px; max-width: 620px; margin: 0 auto; }
+  .voucher-strip {
+    background: var(--accent);
+    color: #fff;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 10px;
+    margin: 28px auto 0;
+    max-width: 520px;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 8px 22px rgba(238, 124, 42, 0.35);
+  }
+  .voucher-strip .num { font-size: 22px; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 36px;
+    margin-top: 48px;
+  }
+  @media (max-width: 880px) { .two-col { grid-template-columns: 1fr; gap: 24px; } }
+
+  .card {
+    background: var(--bg-2);
+    border: 1px solid var(--field-border);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .card h2 {
+    margin: 0 0 18px;
+    font-size: 22px;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card h2 .step-num {
+    background: var(--accent);
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: 800;
+  }
+  .calendar-placeholder {
+    background: #0e2238;
+    border: 1px solid var(--field-border);
+    border-radius: 10px;
+    padding: 36px 20px;
+    text-align: center;
+    color: var(--muted);
+  }
+  .calendar-placeholder .label { color: var(--accent); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; font-size: 12px; }
+  .calendar-placeholder strong { color: var(--text); display: block; font-size: 18px; margin-bottom: 6px; }
+  .time-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .slot {
+    background: var(--bg);
+    border: 1px solid var(--field-border);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 13px;
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .slot:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .slot strong { display: block; color: var(--gold); margin-bottom: 2px; }
+
+  .next-steps { list-style: none; padding: 0; margin: 0; }
+  .next-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--field-border);
+  }
+  .next-steps li:last-child { border-bottom: none; }
+  .next-steps .icon {
+    width: 36px;
+    height: 36px;
+    background: var(--bg);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .next-steps .copy h3 { margin: 0 0 4px; font-size: 15px; color: var(--text); }
+  .next-steps .copy p { margin: 0; font-size: 13px; color: var(--muted); }
+
+  .phone-banner {
+    background: linear-gradient(135deg, var(--bg-2) 0%, #2c4a6b 100%);
+    border: 1px solid var(--accent);
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .phone-banner .emoji { font-size: 42px; flex-shrink: 0; }
+  .phone-banner h3 { margin: 0 0 6px; color: var(--gold); font-size: 18px; }
+  .phone-banner p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .coach {
+    margin-top: 48px;
+    text-align: center;
+    padding: 36px 24px;
+    background: var(--bg-2);
+    border-radius: 14px;
+    border: 1px solid var(--field-border);
+  }
+  .coach-avatar {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: block;
+    object-fit: cover;
+    object-position: center 30%;
+    border: 4px solid var(--bg);
+    box-shadow: 0 0 0 3px var(--accent);
+  }
+  .coach h3 { margin: 0 0 6px; font-size: 20px; }
+  .coach .title { color: var(--gold); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+  .coach p { color: var(--muted); max-width: 540px; margin: 0 auto; font-size: 15px; }
+
+  .referral {
+    margin-top: 36px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 14px;
+    padding: 28px;
+    text-align: center;
+  }
+  .referral h3 { margin: 0 0 10px; font-size: 22px; }
+  .referral p { margin: 0 0 18px; opacity: 0.92; }
+  .referral .btn {
+    background: var(--bg);
+    color: var(--gold);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .referral .btn:hover { background: #0e2238; }
 </style>
 </head>
 <body>
 
-<!-- =========================================================== -->
-<!-- PAGE 1 — LANDING                                            -->
-<!-- =========================================================== -->
-<div class="page active" id="page-hero">
+<!-- ===================== PAGE 1: HERO / LANDING ===================== -->
+<div id="page-hero" class="page active">
 
-  <header class="bar">
-    <div class="wrap">
-      <a class="brand" href="#">
-        <div class="brand-mark">49</div>
-        <div class="brand-name">AK-49 <span>Martial Arts</span></div>
-      </a>
-      <a class="header-call" href="tel:+19075551234">Call Coach Seth — (907) 555-1234</a>
-    </div>
-  </header>
+  <div class="scarcity-strip"><span>🚨 Only 12 vouchers available this month — first-request basis</span></div>
 
   <section class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
+    <div>
+      <div class="eyebrow">⭐ Kenai Peninsula Parents</div>
+      <h1>Claim Your <span class="free">FREE</span> Kids Kickboxing Class Pass</h1>
+      <p class="sub">Build your child's confidence, focus, and real self-defense skills at AK-49 Martial Arts — taught by a 7th-degree black belt right here in Soldotna.</p>
+      <ul class="benefits">
+        <li>Build confidence — no more shy, no more pushed around</li>
+        <li>Learn real self-defense from a 7th-degree black belt</li>
+        <li>Make new friends in a positive, structured environment</li>
+        <li>Get off screens, into the dojo</li>
+        <li>Build character, focus, and respect</li>
+      </ul>
+      <div class="trust">★★★★★ Trusted by 500+ Kenai Peninsula families since 2017</div>
+    </div>
 
-        <div class="hero-copy">
-          <p class="eyebrow">Kenai Peninsula Parents</p>
-          <h1 class="display lead">Your kid's first kickboxing class is <em>free.</em></h1>
-          <p class="sub">One full hour on the mat at <b>AK-49 Martial Arts</b> — the only competition-grade kickboxing gym in Kenai. Coached personally by a UFC and Glory Kickboxing cornerman. No equipment. No pressure. No catch.</p>
+    <div class="form-card">
+      <h2>Grab Your Voucher</h2>
+      <div class="scarcity-mini">Only 12 left — first-request basis</div>
 
-          <div class="scarcity-line">
-            <span class="num">07</span>
-            <span class="lbl">of 12 vouchers remaining<br>for May</span>
-          </div>
+      <form id="lead-form" autocomplete="on">
+        <label for="name">Parent's First Name</label>
+        <input id="name" name="name" type="text" placeholder="Your first name" required>
 
-          <form class="lead" id="lead-form" autocomplete="on" novalidate>
-            <div>
-              <label for="name">Parent's first name</label>
-              <input id="name" name="name" type="text" required placeholder="Sarah">
-            </div>
-            <div class="row">
-              <div>
-                <label for="phone">Mobile</label>
-                <input id="phone" name="phone" type="tel" required placeholder="907 555 1234">
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" required placeholder="you@email.com">
-              </div>
-            </div>
-            <button type="submit" class="cta">Claim Your Voucher</button>
-          </form>
+        <label for="phone">Phone Number</label>
+        <input id="phone" name="phone" type="tel" placeholder="(907) 555-0100" required>
+        <div class="helper">So Coach Seth can text you to schedule.</div>
 
-          <p class="risk">You won't be charged. We won't pressure you to sign up. If your kid doesn't love it, shake my hand and walk out — that's the deal.</p>
-        </div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        <div class="helper">We'll send your voucher + reminders here.</div>
 
-        <div class="portrait-col">
-          <img class="portrait" src="coach-seth.jpg" alt="Coach Seth, owner of AK-49 Martial Arts, wearing an AK-49 hat">
-          <div class="portrait-tag">
-            <div class="name">Coach Seth</div>
-            <div class="creds">Black Belt · UFC Cornerman · Glory Kickboxing</div>
-          </div>
-        </div>
+        <button type="submit" class="cta">Claim My Free Pass →</button>
+      </form>
 
+      <p class="risk-reversal">No commitment. No equipment to buy. If your child doesn't ask to come back after their first class, keep the voucher as our gift — your time wasn't wasted.</p>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <em>"AK-49 Martial Arts is a great academy! Very welcoming and very fun."</em>
       </div>
     </div>
   </section>
+</div>
 
-  <div class="strip">
-    <div class="wrap">
-      <span>Black Belt</span>
-      <span class="dot">/</span>
-      <span>UFC Cornerman</span>
-      <span class="dot">/</span>
-      <span>Glory Kickboxing Coach</span>
-      <span class="dot">/</span>
-      <span>Kenai's Only Competition-Grade Kickboxing Gym</span>
-      <span class="dot">/</span>
-      <span>Established in Alaska</span>
+<!-- ===================== PAGE 2: THANK-YOU ===================== -->
+<div id="page-thankyou" class="page">
+
+  <div class="top-bar">✓ VOUCHER LOCKED IN — CHECK YOUR PHONE</div>
+
+  <div class="ty-container">
+
+    <div class="hero-confirm">
+      <div class="voucher-badge">Voucher Confirmed</div>
+      <h1 class="ty-h1">You're In, <span class="name" id="ty-name">Champ</span>.</h1>
+      <p class="sub-confirm">Your FREE Kids Kickboxing Class Pass is locked in. Now let's get on the mat.</p>
+
+      <div class="voucher-strip">
+        🎫 Your voucher: <span class="num">#7 of 12</span> &nbsp;|&nbsp; valid 7 days
+      </div>
     </div>
+
+    <div class="two-col">
+
+      <div class="card">
+        <h2><span class="step-num">1</span> Pick Your First Class</h2>
+        <div class="calendar-placeholder">
+          <div class="label">Book Your First Class</div>
+          <strong>This Week's Open Slots</strong>
+          <span>Tap a time to book your free trial</span>
+          <div class="time-slots">
+            <div class="slot"><strong>Mon</strong> 4:00 PM</div>
+            <div class="slot"><strong>Mon</strong> 5:30 PM</div>
+            <div class="slot"><strong>Tue</strong> 4:00 PM</div>
+            <div class="slot"><strong>Wed</strong> 4:00 PM</div>
+            <div class="slot"><strong>Wed</strong> 5:30 PM</div>
+            <div class="slot"><strong>Thu</strong> 4:00 PM</div>
+            <div class="slot"><strong>Fri</strong> 4:00 PM</div>
+            <div class="slot"><strong>Sat</strong> 10:00 AM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2><span class="step-num">2</span> Here's What Happens Next</h2>
+        <ul class="next-steps">
+          <li>
+            <span class="icon">📱</span>
+            <div class="copy">
+              <h3>Voucher text inbound</h3>
+              <p>Just sent to your phone. Reply YES to confirm.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon">📅</span>
+            <div class="copy">
+              <h3>Pick a class time (left)</h3>
+              <p>Takes 10 seconds. We'll text you a reminder day-of.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon">👕</span>
+            <div class="copy">
+              <h3>Show up in comfy clothes</h3>
+              <p>No uniform needed. Bring water. We supply everything else.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon">🥊</span>
+            <div class="copy">
+              <h3>First class = fun + confidence</h3>
+              <p>One hour. Real instructors. Coach Seth meets you at the door.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phone-banner">
+      <div class="emoji">📲</div>
+      <div>
+        <h3>Check your phone right now</h3>
+        <p>We just sent your voucher details and a quick reply prompt by text. Reply YES so Coach Seth knows you got it — and to lock in your spot.</p>
+      </div>
+    </div>
+
+    <div class="coach">
+      <img class="coach-avatar" src="coach-seth.jpg" alt="Coach Seth, owner of AK-49 Martial Arts">
+      <h3>Coach Seth</h3>
+      <div class="title">Owner · 7th-Degree Black Belt · AK-49 Martial Arts</div>
+      <p>"I personally meet every new student and family on day one. If you have questions before class — about your kid, about what to expect, about anything — just text me at the number you just got. That's my real number."</p>
+    </div>
+
+    <div class="referral">
+      <h3>While you're here — know another parent who'd love this?</h3>
+      <p>Share your voucher link. If they sign up too, we'll add an extra free week to your trial. (12 vouchers go fast.)</p>
+      <button class="btn">Share My Voucher Link</button>
+    </div>
+
   </div>
-
-  <section class="alt">
-    <div class="wrap">
-      <p class="label-tiny">What You Actually Get</p>
-      <h2 class="display h2">A real class.<br>Not a sales pitch.</h2>
-
-      <div class="get-grid">
-        <p class="caption">The free class isn't a sample. It's the same class the regulars take. Same coach. Same room. Same hour. The only difference is you don't pay for it.</p>
-        <ol class="numlist">
-          <li>
-            <div class="n">01</div>
-            <div class="copy">
-              <h3>Sixty minutes on the mat.</h3>
-              <p>A full session — striking fundamentals, footwork, conditioning. Not a demo, not a watered-down kid version. The real thing, scaled to age.</p>
-            </div>
-          </li>
-          <li>
-            <div class="n">02</div>
-            <div class="copy">
-              <h3>Coach Seth in the room.</h3>
-              <p>You don't get handed off to a junior instructor. The same coach who corners pro fighters at Glory and the UFC is the one teaching your kid how to throw a jab.</p>
-            </div>
-          </li>
-          <li>
-            <div class="n">03</div>
-            <div class="copy">
-              <h3>We supply everything.</h3>
-              <p>Gloves. Mats. Water. No equipment to buy, no uniform to order. Show up in comfortable clothes. That's the whole list.</p>
-            </div>
-          </li>
-          <li>
-            <div class="n">04</div>
-            <div class="copy">
-              <h3>Walk away if it's not for them.</h3>
-              <p>If your kid doesn't want to come back, you don't sign anything. No phone calls. No "trial periods" that auto-renew. You shake my hand at the door and that's the end of it.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <section class="coach">
-    <div class="wrap">
-      <div class="coach-grid">
-        <img class="coach-photo" src="coach-seth.jpg" alt="Coach Seth Doubleinup, head coach at AK-49 Martial Arts">
-        <div class="coach-content">
-          <p class="label-tiny" style="color: var(--orange);">Meet Your Coach</p>
-          <h2 class="display h2">Coach Seth.<br>Black belt.<br>Cornerman.</h2>
-
-          <ul class="creds-stack">
-            <li>
-              <div class="role">Discipline</div>
-              <div class="what">Black Belt — Brazilian Jiu Jitsu</div>
-            </li>
-            <li>
-              <div class="role">Cornerman</div>
-              <div class="what">Glory Kickboxing</div>
-            </li>
-            <li>
-              <div class="role">Cornerman</div>
-              <div class="what">UFC</div>
-            </li>
-            <li>
-              <div class="role">Owner</div>
-              <div class="what">AK-49 Martial Arts · Kenai, AK</div>
-            </li>
-          </ul>
-
-          <p class="pullquote serif-it">"I meet every kid who walks through that door on day one. That's not a marketing line. That's how I run the gym."</p>
-
-          <p class="coach-bio">Coach Seth has cornered fighters at the highest level of mixed martial arts and professional kickboxing — but the work he's most proud of happens on a mat in Kenai with eight-year-olds learning their first jab-cross. AK-49 Martial Arts is built around the same principles that produce winning fighters: real coaching, real discipline, real respect. Scaled for kids, but never dumbed down.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="voices">
-    <div class="wrap">
-      <p class="label-tiny">From The Parents</p>
-      <h2 class="display h2">What kids say<br>at the dinner table.</h2>
-
-      <div class="voices-grid">
-        <div class="voice">
-          <p class="quote">He came home buzzing. Told his sister every single thing they did, in order. He's already asking when the next class is.</p>
-          <p class="who"><b>Jess M.</b> · Parent · 9-year-old new student</p>
-        </div>
-        <div class="voice">
-          <p class="quote">I expected a watered-down kids class. What I got was an actual coach who took my son seriously. That's rare. He hasn't stopped talking about Coach Seth.</p>
-          <p class="who"><b>Mike R.</b> · Parent · 11-year-old new student</p>
-        </div>
-        <div class="voice">
-          <p class="quote">My daughter wasn't the most confident kid before AK-49. Three months in, she's leading warm-ups. I don't know how he did it but I'm not asking questions.</p>
-          <p class="who"><b>Tara L.</b> · Parent · 8-year-old student, 3 months in</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="endcta">
-    <div class="wrap">
-      <div class="endcta-grid">
-        <div>
-          <p class="label-tiny" style="color: var(--orange);">Last Call</p>
-          <h2 class="display h2">7 left.<br>That's it for May.</h2>
-          <p class="copy-block">After this batch, vouchers go back to <b>$79 trial passes</b>. There is no waitlist. When the 12th name is in, the form comes down.</p>
-        </div>
-        <div>
-          <div class="scarcity-big">07</div>
-          <div class="scarcity-sub">vouchers remaining</div>
-          <form class="lead" autocomplete="on" novalidate onsubmit="document.getElementById('lead-form').dispatchEvent(new Event('submit', {cancelable: true})); return false;">
-            <div>
-              <label for="name2">Parent's first name</label>
-              <input id="name2" name="name" type="text" required placeholder="Sarah">
-            </div>
-            <div class="row">
-              <div>
-                <label for="phone2">Mobile</label>
-                <input id="phone2" name="phone" type="tel" required placeholder="907 555 1234">
-              </div>
-              <div>
-                <label for="email2">Email</label>
-                <input id="email2" name="email" type="email" required placeholder="you@email.com">
-              </div>
-            </div>
-            <button type="submit" class="cta">Claim Your Voucher</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap">
-      <div>
-        <div class="brand">
-          <div class="brand-mark">49</div>
-          <div class="brand-name">AK-49 <span>Martial Arts</span></div>
-        </div>
-        <p style="margin-top: 18px;">Kenai's only competition-grade kickboxing gym. Adults, kids, beginners, fighters.</p>
-      </div>
-      <div>
-        <h4>Visit</h4>
-        <p>[ Street Address ]<br>Kenai, AK 99611</p>
-      </div>
-      <div>
-        <h4>Reach</h4>
-        <p><a href="tel:+19075551234" style="color: var(--cream); text-decoration: none; border-bottom: 1px solid var(--orange);">(907) 555-1234</a></p>
-        <p style="margin-top: 6px;">coach@ak49.example</p>
-      </div>
-      <div>
-        <h4>Train</h4>
-        <p>Mon–Fri · 4–8 PM</p>
-        <p>Sat · 10 AM–1 PM</p>
-      </div>
-      <div class="legal" style="grid-column: 1 / -1;">© AK-49 Martial Arts · Kenai, Alaska</div>
-    </div>
-  </footer>
 </div>
-
-<!-- =========================================================== -->
-<!-- PAGE 2 — THANK YOU                                          -->
-<!-- =========================================================== -->
-<div class="page" id="page-thankyou">
-
-  <header class="bar">
-    <div class="wrap">
-      <a class="brand" href="#">
-        <div class="brand-mark">49</div>
-        <div class="brand-name">AK-49 <span>Martial Arts</span></div>
-      </a>
-      <a class="header-call" href="tel:+19075551234">Call Coach Seth — (907) 555-1234</a>
-    </div>
-  </header>
-
-  <section class="ty-hero">
-    <div class="wrap">
-      <div class="ty-hero-grid">
-
-        <div>
-          <p class="ty-eyebrow">Voucher <span class="vchr">#07</span> of 12 — confirmed</p>
-          <h1 class="display ty-lead"><span id="ty-name">Sarah</span>, you're <em>in.</em></h1>
-          <p class="ty-sub">Your free kickboxing class voucher is locked in. We just texted the details to your phone. Pick a class time below and Coach Seth will see you on the mat.</p>
-        </div>
-
-        <div class="portrait-col">
-          <img class="portrait" src="coach-seth.jpg" alt="Coach Seth, AK-49 Martial Arts">
-          <div class="portrait-tag">
-            <div class="name">Coach Seth</div>
-            <div class="creds">Black Belt · UFC · Glory Kickboxing</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="book">
-    <div class="wrap">
-      <p class="label-tiny">Step One</p>
-      <h2 class="display h2">Pick a class time.</h2>
-
-      <div class="book-grid">
-        <p class="caption">Tap a slot below. We'll text you a reminder the day before. If your week shifts, reply STOP or RESCHEDULE — no penalty, no awkward call.</p>
-        <div class="calendar">
-          <div class="cal-head">
-            <div class="month">This Week</div>
-            <div class="embed-note">Calendly · Acuity · GHL Embed</div>
-          </div>
-          <div class="slots">
-            <button class="slot"><div class="day">Mon</div><div class="time">4:00 PM</div></button>
-            <button class="slot"><div class="day">Mon</div><div class="time">5:30 PM</div></button>
-            <button class="slot"><div class="day">Tue</div><div class="time">4:00 PM</div></button>
-            <button class="slot"><div class="day">Wed</div><div class="time">4:00 PM</div></button>
-            <button class="slot"><div class="day">Wed</div><div class="time">5:30 PM</div></button>
-            <button class="slot"><div class="day">Thu</div><div class="time">4:00 PM</div></button>
-            <button class="slot"><div class="day">Fri</div><div class="time">4:00 PM</div></button>
-            <button class="slot"><div class="day">Sat</div><div class="time">10:00 AM</div></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="expect">
-    <div class="wrap">
-      <p class="label-tiny" style="color: var(--orange);">Step Two</p>
-      <h2 class="display h2">What to expect<br>on day one.</h2>
-
-      <div class="get-grid">
-        <p class="caption" style="color: var(--ash-2);">Five minutes early is plenty. The room will be loud, the energy will be high. That's normal. Coach Seth will be at the door.</p>
-        <ol class="numlist">
-          <li>
-            <div class="n">01</div>
-            <div class="copy">
-              <h3>Show up five minutes early.</h3>
-              <p>Comfortable clothes. No uniform. No equipment. We supply gloves, mats, water — all of it.</p>
-            </div>
-          </li>
-          <li>
-            <div class="n">02</div>
-            <div class="copy">
-              <h3>Coach Seth meets you at the door.</h3>
-              <p>You'll be introduced before class starts. Ask any question — about the gym, about the program, about anything.</p>
-            </div>
-          </li>
-          <li>
-            <div class="n">03</div>
-            <div class="copy">
-              <h3>Real class. Real hour.</h3>
-              <p>Warm-up, technique, drills, conditioning. Same structure as every paid class. Your kid is in the regular room with the regular kids.</p>
-            </div>
-          </li>
-          <li>
-            <div class="n">04</div>
-            <div class="copy">
-              <h3>Honest answer at the end.</h3>
-              <p>If your kid loved it, we'll talk about what's next. If they didn't, you walk out with a handshake. That's the whole deal.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <section class="coach-note">
-    <div class="wrap">
-      <div class="coach-note-grid">
-        <img class="coach-note-photo" src="coach-seth.jpg" alt="Coach Seth">
-        <div>
-          <p class="label-tiny">A Note From Coach Seth</p>
-          <h2 class="display h2">Text me directly<br>if anything comes up.</h2>
-          <p class="pullquote serif-it">"That number we sent you isn't a call center. It's my phone. If you have a question before class — about your kid, the program, what to bring — text me. I'd rather you walk in feeling prepared than nervous."</p>
-          <div class="sign">
-            — Coach Seth
-            <small>Owner · AK-49 Martial Arts</small>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap">
-      <div>
-        <div class="brand">
-          <div class="brand-mark">49</div>
-          <div class="brand-name">AK-49 <span>Martial Arts</span></div>
-        </div>
-        <p style="margin-top: 18px;">See you on the mat.</p>
-      </div>
-      <div>
-        <h4>Visit</h4>
-        <p>[ Street Address ]<br>Kenai, AK 99611</p>
-      </div>
-      <div>
-        <h4>Reach</h4>
-        <p><a href="tel:+19075551234" style="color: var(--cream); text-decoration: none; border-bottom: 1px solid var(--orange);">(907) 555-1234</a></p>
-        <p style="margin-top: 6px;">coach@ak49.example</p>
-      </div>
-      <div>
-        <h4>Train</h4>
-        <p>Mon–Fri · 4–8 PM</p>
-        <p>Sat · 10 AM–1 PM</p>
-      </div>
-      <div class="legal" style="grid-column: 1 / -1;">© AK-49 Martial Arts · Kenai, Alaska</div>
-    </div>
-  </footer>
-</div>
-
-<button class="demo-nav" id="demo-nav" type="button"><span id="nav-current">Demo: Hero ↔ Thank-You</span></button>
 
 <script>
   const heroPage = document.getElementById('page-hero');
-  const tyPage   = document.getElementById('page-thankyou');
-  const navLbl   = document.getElementById('nav-current');
-  const demoNav  = document.getElementById('demo-nav');
-  const form     = document.getElementById('lead-form');
-  const tyName   = document.getElementById('ty-name');
+  const tyPage = document.getElementById('page-thankyou');
+  const form = document.getElementById('lead-form');
+  const tyName = document.getElementById('ty-name');
 
-  function showHero() {
-    heroPage.classList.add('active');
-    tyPage.classList.remove('active');
-    navLbl.textContent = 'Demo: viewing Landing — click to flip';
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }
   function showThankYou() {
     heroPage.classList.remove('active');
     tyPage.classList.add('active');
-    navLbl.textContent = 'Demo: viewing Thank-You — click to flip';
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const raw = (document.getElementById('name').value || '').trim();
-    const display = raw ? raw.charAt(0).toUpperCase() + raw.slice(1) : 'Friend';
-    tyName.textContent = display;
+    const name = document.getElementById('name').value.trim() || 'Champ';
+    tyName.textContent = name.charAt(0).toUpperCase() + name.slice(1);
     showThankYou();
   });
-
-  demoNav.addEventListener('click', () => {
-    if (heroPage.classList.contains('active')) {
-      showThankYou();
-    } else {
-      showHero();
-    }
-  });
-
-  navLbl.textContent = 'Demo: viewing Landing — click to flip';
 </script>
 
 </body>
